@@ -1,0 +1,8 @@
+package com.investment.user.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class UserModificationController {
+
+}

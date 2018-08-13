@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS `pd_user` (
+  `ID` bigint(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `USER_NO` varchar(20) NOT NULL COMMENT '用户编号',
+  `MOBILE` varchar(16) NOT NULL DEFAULT '' COMMENT '手机号',
+  `PASSWORD` varchar(128) DEFAULT NULL COMMENT '账号登录密码',
+  `TX_PASSWORD` varchar(128) DEFAULT NULL COMMENT '交易密码',
+  `GESTURE_PASSWORD` varchar(128) DEFAULT NULL COMMENT '手势密码',
+  `LOGIN_LOCKED_STATE` char(1) DEFAULT NULL COMMENT '登录锁定状态1-锁定；0-未锁',
+  `LOGIN_LOCKED_TIME` datetime DEFAULT NULL COMMENT '登录锁定时间',
+  `LOGIN_UNLOCKED_TIME` datetime DEFAULT NULL COMMENT '登录解锁时间',
+  `APPLY_LOCKED_STATE` char(1) DEFAULT NULL COMMENT '申请锁定状态1-锁定；0-未锁',
+  `APPLY_LOCKED_TIME` datetime DEFAULT NULL COMMENT '申请锁定时间',
+  `APPLY_UNLOCKED_TIME` datetime DEFAULT NULL COMMENT '申请解锁时间',
+  `IS_BLACK` varchar(1) DEFAULT '0' COMMENT '是否黑名单 1：是；0：否 --暂时无用',
+  `TD_LOCKED_STATE` varchar(1) DEFAULT '0' COMMENT '同盾锁（0 未锁；1 已锁）',
+  `TD_LOCKED_TIME` datetime DEFAULT NULL COMMENT '同盾锁锁定时间',
+
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `unique_user_no` (`USER_NO`),
+  UNIQUE KEY `unique_mobile` (`MOBILE`)
+);
