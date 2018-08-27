@@ -3,6 +3,8 @@ package com.investment.user.controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 public class UserLoginController {
 
@@ -30,6 +32,17 @@ public class UserLoginController {
      * @param json
      */
     public void loginThirdAuthorized (@RequestBody String json){
+
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0; i < 1; i++){
+            int hashCodeV = UUID.randomUUID().toString().hashCode();
+//            if (hashCodeV < 0) {//有可能是负数
+//                hashCodeV = -hashCodeV;
+//            }
+            System.out.println(hashCodeV);
+        }
 
     }
 }
