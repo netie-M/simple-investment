@@ -1,0 +1,51 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: product
+  jackson:
+    date-format: yyyy-MM-dd hh:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: NON_EMPTY
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+    parser:
+      ALLOW_SINGLE_QUOTES: true
+      ALLOW_UNQUOTED_CONTROL_CHARS: true
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    hikari:
+      pool-name: product-hikari
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+      settings:
+        web-allow-others: true
+        trace: false
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        show-sql: true
+        generate-ddl: true
+    hibernate:
+      use-new-id-generator-mappings: false
+      ddl-auto: 'create-drop'
+#      naming:
+#        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+
+#logging:
+#  level:
+#    org.hibernate.type.descriptor: trace
+#    org.hibernate.engine: debug

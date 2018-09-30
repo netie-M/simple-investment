@@ -1,7 +1,5 @@
 package com.investment.common.util;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 /**
  * Twitter_Snowflake<br>
  * SnowFlake的结构如下(每部分用-分开):<br>
@@ -59,8 +57,6 @@ public class SnowflakeIdWorker {
     /** 上次生成ID的时间截 */
     private long lastTimestamp = -1L;
 
-    public AtomicLong atomicLong;
-
     //==============================Constructors=====================================
     /**
      * 构造函数
@@ -76,7 +72,6 @@ public class SnowflakeIdWorker {
         }
         this.workerId = workerId;
         this.datacenterId = datacenterId;
-        atomicLong = new AtomicLong();
     }
 
     // ==============================Methods==========================================
@@ -124,7 +119,6 @@ public class SnowflakeIdWorker {
         //时间戳改变，毫秒内序列重置
         else {
             sequence = 0L;
-            System.out.println(atomicLong.incrementAndGet());;
         }
 
         //上次生成ID的时间截
@@ -166,14 +160,11 @@ public class SnowflakeIdWorker {
         System.out.println("start..."+ start);
         for (int i = 0; i < 100000; i++) {
             long id = idWorker.nextId();
-//            System.out.println(""+id+":"+Long.toBinaryString(id));
-            System.out.println(id);
         }
 
         long end = System.currentTimeMillis();
         System.out.println("end..." + end);
         System.out.println("cost..." + (end - start));
-        System.out.println(idWorker.atomicLong);
     }
 }
 

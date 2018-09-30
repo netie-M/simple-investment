@@ -1,6 +1,5 @@
 package com.investment.user;
 
-import com.alibaba.fastjson.JSON;
 import com.zaxxer.hikari.HikariDataSource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,7 +36,7 @@ public class UserApplicationTest {
             Map<String,Object> map = jdbcTemplate.queryForMap("select 1");
             System.out.println("query result:" + map);
             List<?> resultList = jdbcTemplate.queryForList("select * from pd_user where id = 51045");
-            System.out.println("query result:" + JSON.toJSONString(resultList));
+//            System.out.println("query result:" + JSON.toJSONString(resultList));
         }
     }
 }

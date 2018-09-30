@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: pay-service
+
+server:
+  port: 8083
+  servlet-path: /
+  connection-timeout: 60000
+  http2:
+    enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:8761/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${spring.application.instance_id:${server.port}}
+
+security:
+  basic:
+    enabled: false
