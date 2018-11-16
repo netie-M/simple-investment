@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@EnableEurekaClient
 @EnableJpaAuditing
+@EnableEurekaClient
 @Slf4j
 @Import({RedisCacheConfig.class,RedisConfig.class})
 public class ProductApplication implements CommandLineRunner {
